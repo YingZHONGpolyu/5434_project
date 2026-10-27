@@ -1,0 +1,41 @@
+{
+  "source": "/Volumes/T9/code/5434_project/data/raw_data/train.csv",
+  "output": "/Volumes/T9/code/5434_project/data/cleaned_data/train.csv",
+  "created_at": "2026-10-26T13:33:03.594520+00:00",
+  "counts": {
+    "input_rows": 7684645,
+    "modified_retained_rows": 2034903,
+    "output_rows": 7657752,
+    "removed_duplicate_rows": 26893,
+    "invalid_votes_set_missing": 1
+  },
+  "missing_values_after": {
+    "id": 0,
+    "title": 0,
+    "user_id": 0,
+    "comment": 8997,
+    "prod_id": 0,
+    "parent_prod_id": 0,
+    "time": 0,
+    "votes": 1,
+    "purchased": 0,
+    "rating": 0
+  },
+  "rating_distribution_after": {
+    "1": 1126928,
+    "2": 663521,
+    "3": 742979,
+    "4": 888556,
+    "5": 4235768
+  },
+  "rules": [
+    "保留原始字段、行 ID 和毫秒时间戳单位，原始文件不变",
+    "文本移除 HTML 标签、解码 HTML 实体、NFC 规范化、移除控制字符、合并空白",
+    "不删除停用词、否定词、标点，不改写评分或按情感猜测标签",
+    "移除字段数量异常、评分不是 1–5 整数、标题与正文均空的记录",
+    "排除 id 后按清洗后的所有业务字段去重，保留首条",
+    "votes 和 time 限非负整数，无法解析则置空；有效极端值保留",
+    "purchased 规范为 True/False，无法解析则置空",
+    "其余缺失值保留为空，不利用全量数据估计填充值，避免后续验证集泄漏"
+  ]
+}

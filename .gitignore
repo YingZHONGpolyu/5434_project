@@ -1,0 +1,18 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# 原始数据、训练缓存和模型权重不提交到 Git。
+data/raw_data/
+data/cleaned_data/*.csv
+model/artifacts/
+spark-warehouse/
+metastore_db/
+derby.log
+
+# Local training outputs and server environment
+checkpoints/
+wandb/
+.venv-gpu/
